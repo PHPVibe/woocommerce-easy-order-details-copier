@@ -1,0 +1,583 @@
+# Copyright (C) 2026 WooUseful
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooUseful Order Details Copier 1.0.0\n"
+"Report-Msgid-Bugs-To: https://woouseful.com/\n"
+"POT-Creation-Date: 2026-06-18 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: woouseful-order-details-copier\n"
+
+#: includes/Admin/Settings.php
+msgid "_billing_cui"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Add copy dropdowns and bulk copy tools to the orders list."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Advanced section"
+msgstr ""
+
+#: includes/Fields.php
+msgid "All billing details"
+msgstr ""
+
+#: includes/Fields.php
+msgid "All shipping details"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Available variables"
+msgstr ""
+
+#: includes/Fields.php includes/OrderData.php
+msgid "Billing"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Billing address 1"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Billing address 2"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Billing city"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Billing company"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Billing country"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Billing county/state"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Billing postcode"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Billing ≠ shipping"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Clean copied text in the browser before it reaches the clipboard."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Comfortable"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Compact"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Company order"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Company registration number"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Contact"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Copied"
+msgstr ""
+
+#: includes/Admin/OrderList.php includes/Admin/Settings.php
+msgid "Copy"
+msgstr ""
+
+#: includes/Admin/OrderPanel.php
+msgid "Copy %s"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Copy blocks"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Copy clean customer, address, courier, invoice, support, and order details from the order screen or orders list without selecting messy WooCommerce address blocks."
+msgstr ""
+
+#: includes/Admin/OrderList.php
+msgid "Copy selected orders:"
+msgstr ""
+
+#: includes/Admin/OrderPanel.php
+msgid "Copy to clipboard"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Copyable details"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Could not copy"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Courier"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Courier block"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Courier handoff"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Courier with order number"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Create admin-defined blocks for courier labels, WhatsApp messages, support notes, spreadsheets, or invoice workflows."
+msgstr ""
+
+#: includes/Fields.php
+msgid "Custom copy blocks"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Custom copy templates"
+msgstr ""
+
+#: includes/Admin/OrderPanel.php includes/Fields.php
+msgid "Custom meta details"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Custom order meta fields"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Customer"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Customer contact block"
+msgstr ""
+
+#: includes/Fields.php includes/OrderData.php
+msgid "Customer note"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Disable a full group when you do not want it displayed in the order panel."
+msgstr ""
+
+#: includes/Admin/OrderPanel.php includes/Admin/Settings.php
+msgid "Easy copy"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Email"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Empty details"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Enable"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Enable Easy Copy panel"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Enable this template"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Enable, rename, and drag fields to change their order. Every enabled detail keeps its own copy-to-clipboard button."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Enabled"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Expose extra order meta from invoice, tax, ERP, auction, courier, or checkout-field plugins as copyable rows. Leave unused rows disabled."
+msgstr ""
+
+#: includes/Fields.php
+msgid "First name"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "First order"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Free WooUseful utility"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Full billing address"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Full name"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Full shipping address"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "General"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Groups"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Guest order"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Hello {first_name}, regarding your order #{order_number}, we wanted to confirm your delivery details."
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Hello {first_name}, regarding your order #{order_number}, we wanted to contact you about your delivery details."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Hide fields that are empty for the current order."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "HPOS ready"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Included features"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Internal reference"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Invoice"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Invoice series"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Invoice/client block"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Label"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Last name"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Live preview"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Main column"
+msgstr ""
+
+#: includes/Admin/OrderPanel.php
+msgid "No copyable details are available for this order."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "No external calls"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "No tracking"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Nothing available to copy."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "One-click order handoff for real store work."
+msgstr ""
+
+#: includes/Admin/OrderList.php includes/Admin/OrderPanel.php
+msgid "Open WhatsApp"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Order"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Order #%s"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Order admin link"
+msgstr ""
+
+#: includes/Admin/OrderPanel.php
+msgid "Order data could not be loaded."
+msgstr ""
+
+#: includes/Fields.php
+msgid "Order date"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Order Details Copier"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Order ID"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Order items"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Order meta key"
+msgstr ""
+
+#: includes/Admin/OrderPanel.php
+msgid "Order notes"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Order number"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Order status"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Order total"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Packing/prep block"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Panel density"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Panel location"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Panel title"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Payment method"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Phone"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Phone missing"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Prep list"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Privacy and safety"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Processing"
+msgstr ""
+
+#: includes/Admin/OrderPanel.php
+msgid "Quick copy:"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Quick support note"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Right sidebar"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Select one or more orders first."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Selected orders copied"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Settings"
+msgstr ""
+
+#: includes/Fields.php includes/OrderData.php
+msgid "Shipping"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping address 1"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping address 2"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping city"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping company"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping country"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping county/state"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping first name"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping full name"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping last name"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping method"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping phone"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Shipping postcode"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Shipping: %s"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Show Open WhatsApp actions when a phone number is available."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Show smart badges such as guest order, missing phone, different shipping, and customer note."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Show the panel on WooCommerce order edit screens."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Show the Quick Copy bar on the order screen."
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Spreadsheet"
+msgstr ""
+
+#: includes/Fields.php
+msgid "Spreadsheet row"
+msgstr ""
+
+#: includes/OrderData.php
+msgid "Summary"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Template content"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Template tip: custom templates can also use dynamic meta variables such as {meta:_billing_cui}."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Template title"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "This plugin only reads order data inside wp-admin and copies it to the current admin user clipboard. It does not send customer data to WooUseful, does not call external APIs, and does not create logs."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Translation ready"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Use these placeholders inside custom template content:"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "VAT / Tax ID"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "WhatsApp delivery check"
+msgstr ""
+
+#: includes/Fields.php
+msgid "WhatsApp/contact block"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "WooUseful Order Details Copier"
+msgstr ""
+
+#: includes/Plugin.php
+msgid "WooUseful Order Details Copier requires WooCommerce to be installed and active."
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "Wow features"
+msgstr ""
+
+#: includes/Admin/Settings.php
+msgid "You do not have permission to access this page."
+msgstr ""
