@@ -3,12 +3,21 @@ Copy WooCommerce order details faster. Cleaner fields, custom labels, smart valu
 
 
 === PHPVibe Order Details Copier ===
+
+Plugins details and url: [PHPVibe -> Easy Order Details Copier](https://phpvibe.com/download/order-details-copier/)
+
 Contributors: woouseful, phpvibe
+
 Tags: woocommerce, orders, admin, clipboard, customer details, hpos
+
 Requires at least: 6.2
+
 Tested up to: 6.9
+
 Requires PHP: 7.4
+
 Stable tag: 1.1.1
+
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
