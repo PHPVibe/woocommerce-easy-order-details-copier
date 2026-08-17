@@ -2,10 +2,10 @@
 /**
  * Configurable value cleaners and regex extractors.
  *
- * @package WooUseful_Order_Details_Copier
+ * @package PHPVibe_Order_Details_Copier
  */
 
-namespace Vibe\WooUseful\OrderDetailsCopier;
+namespace Vibe\PHPVibe\OrderDetailsCopier;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;

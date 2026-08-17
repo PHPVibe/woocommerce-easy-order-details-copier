@@ -4,7 +4,7 @@
  * Plugin URI:  https://PHPVibe.com/
  * Description: Copy clean WooCommerce customer, address, courier, invoice, support, and order details from the order screen or orders list in one click.
  * Version:     1.1.1
- * Author:      WooUseful for PHPVibe
+ * Author:      PHPVibe for PHPVibe
  * Author URI:  https://PHPVibe.com/
  * Text Domain: PHPVibe-order-details-copier
  * Domain Path: /languages
@@ -14,7 +14,7 @@
  * WC requires at least: 7.1
  * WC tested up to: 10.8
  *
- * @package WooUseful_Order_Details_Copier
+ * @package PHPVibe_Order_Details_Copier
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -47,6 +47,6 @@ require_once WUODC_DIR . 'includes/Admin/OrderList.php';
 add_action(
     'plugins_loaded',
     static function () {
-        \Vibe\WooUseful\OrderDetailsCopier\Plugin::instance()->init();
+        \Vibe\PHPVibe\OrderDetailsCopier\Plugin::instance()->init();
     }
 );

@@ -2,12 +2,12 @@
 /**
  * Orders list copy helpers.
  *
- * @package WooUseful_Order_Details_Copier
+ * @package PHPVibe_Order_Details_Copier
  */
 
-namespace Vibe\WooUseful\OrderDetailsCopier\Admin;
+namespace Vibe\PHPVibe\OrderDetailsCopier\Admin;
 
-use Vibe\WooUseful\OrderDetailsCopier\OrderData;
+use Vibe\PHPVibe\OrderDetailsCopier\OrderData;
 use WC_Order;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -49,12 +49,12 @@ class OrderList {
         foreach ( $columns as $key => $label ) {
             $new_columns[ $key ] = $label;
             if ( in_array( $key, array( 'order_status', 'status' ), true ) ) {
-                $new_columns['wuodc_copy'] = __( 'Copy', 'woouseful-order-details-copier' );
+                $new_columns['wuodc_copy'] = __( 'Copy', 'phpvibe-order-details-copier' );
             }
         }
 
         if ( ! isset( $new_columns['wuodc_copy'] ) ) {
-            $new_columns['wuodc_copy'] = __( 'Copy', 'woouseful-order-details-copier' );
+            $new_columns['wuodc_copy'] = __( 'Copy', 'phpvibe-order-details-copier' );
         }
 
         return $new_columns;
@@ -129,7 +129,7 @@ class OrderList {
         $templates = OrderData::quick_templates();
         ?>
         <div class="wuodc-list-bulk" data-wuodc-list-bulk hidden>
-            <strong><?php echo esc_html__( 'Copy selected orders:', 'woouseful-order-details-copier' ); ?></strong>
+            <strong><?php echo esc_html__( 'Copy selected orders:', 'phpvibe-order-details-copier' ); ?></strong>
             <?php foreach ( $templates as $template_id => $template ) : ?>
                 <button type="button" class="button wuodc-bulk-copy-button" data-wuodc-bulk-template="<?php echo esc_attr( $template_id ); ?>">
                     <?php echo esc_html( $template['label'] ); ?>
@@ -156,7 +156,7 @@ class OrderList {
         echo '<div class="wuodc-list-copy" data-wuodc-list-order="' . esc_attr( (string) $order->get_id() ) . '">';
         echo '<button type="button" class="button button-small wuodc-list-menu-toggle" aria-expanded="false">';
         echo '<span class="dashicons dashicons-admin-page" aria-hidden="true"></span> ';
-        echo esc_html__( 'Copy', 'woouseful-order-details-copier' );
+        echo esc_html__( 'Copy', 'phpvibe-order-details-copier' );
         echo '</button>';
         echo '<div class="wuodc-list-menu" role="menu">';
 
@@ -170,7 +170,7 @@ class OrderList {
         if ( 'yes' === Settings::get( 'enable_whatsapp', 'yes' ) ) {
             $whatsapp_url = OrderData::whatsapp_url( $order );
             if ( '' !== $whatsapp_url ) {
-                echo '<a href="' . esc_url( $whatsapp_url ) . '" target="_blank" rel="noopener noreferrer" role="menuitem">' . esc_html__( 'Open WhatsApp', 'woouseful-order-details-copier' ) . '</a>';
+                echo '<a href="' . esc_url( $whatsapp_url ) . '" target="_blank" rel="noopener noreferrer" role="menuitem">' . esc_html__( 'Open WhatsApp', 'phpvibe-order-details-copier' ) . '</a>';
             }
         }
 

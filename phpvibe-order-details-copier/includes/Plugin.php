@@ -2,14 +2,14 @@
 /**
  * Main plugin bootstrap.
  *
- * @package WooUseful_Order_Details_Copier
+ * @package PHPVibe_Order_Details_Copier
  */
 
-namespace Vibe\WooUseful\OrderDetailsCopier;
+namespace Vibe\PHPVibe\OrderDetailsCopier;
 
-use Vibe\WooUseful\OrderDetailsCopier\Admin\OrderList;
-use Vibe\WooUseful\OrderDetailsCopier\Admin\OrderPanel;
-use Vibe\WooUseful\OrderDetailsCopier\Admin\Settings;
+use Vibe\PHPVibe\OrderDetailsCopier\Admin\OrderList;
+use Vibe\PHPVibe\OrderDetailsCopier\Admin\OrderPanel;
+use Vibe\PHPVibe\OrderDetailsCopier\Admin\Settings;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -66,7 +66,7 @@ final class Plugin {
      * @return void
      */
     public function init(): void {
-        load_plugin_textdomain( 'woouseful-order-details-copier', false, dirname( WUODC_BASENAME ) . '/languages' );
+        load_plugin_textdomain( 'phpvibe-order-details-copier', false, dirname( WUODC_BASENAME ) . '/languages' );
 
         if ( ! class_exists( 'WooCommerce' ) ) {
             add_action( 'admin_notices', array( $this, 'woocommerce_missing_notice' ) );
@@ -93,7 +93,7 @@ final class Plugin {
         }
 
         echo '<div class="notice notice-error"><p>';
-        echo esc_html__( 'WooUseful Order Details Copier requires WooCommerce to be installed and active.', 'woouseful-order-details-copier' );
+        echo esc_html__( 'PHPVibe Order Details Copier requires WooCommerce to be installed and active.', 'phpvibe-order-details-copier' );
         echo '</p></div>';
     }
 }

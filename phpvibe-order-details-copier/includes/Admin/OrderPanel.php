@@ -2,14 +2,14 @@
 /**
  * Order edit screen panel.
  *
- * @package WooUseful_Order_Details_Copier
+ * @package PHPVibe_Order_Details_Copier
  */
 
-namespace Vibe\WooUseful\OrderDetailsCopier\Admin;
+namespace Vibe\PHPVibe\OrderDetailsCopier\Admin;
 
-use Vibe\WooUseful\OrderDetailsCopier\Fields;
-use Vibe\WooUseful\OrderDetailsCopier\OrderData;
-use Vibe\WooUseful\OrderDetailsCopier\Transform;
+use Vibe\PHPVibe\OrderDetailsCopier\Fields;
+use Vibe\PHPVibe\OrderDetailsCopier\OrderData;
+use Vibe\PHPVibe\OrderDetailsCopier\Transform;
 use WC_Order;
 use WP_Post;
 
@@ -48,7 +48,7 @@ class OrderPanel {
 
         $screens = array_unique( array_filter( $screens ) );
         $context = Settings::get( 'metabox_context', 'normal' );
-        $title   = Settings::get( 'panel_title', __( 'Easy copy', 'woouseful-order-details-copier' ) );
+        $title   = Settings::get( 'panel_title', __( 'Easy copy', 'phpvibe-order-details-copier' ) );
 
         foreach ( $screens as $screen ) {
             add_meta_box(
@@ -160,7 +160,7 @@ class OrderPanel {
         $order = $this->resolve_order( $post_or_order_object );
 
         if ( ! $order ) {
-            echo '<p>' . esc_html__( 'Order data could not be loaded.', 'woouseful-order-details-copier' ) . '</p>';
+            echo '<p>' . esc_html__( 'Order data could not be loaded.', 'phpvibe-order-details-copier' ) . '</p>';
             return;
         }
 
@@ -279,7 +279,7 @@ class OrderPanel {
         $custom_meta_rows = $this->custom_meta_rows( $settings['custom_meta_fields'] ?? array(), $order, $hide_empty );
 
         if ( empty( array_filter( $rows_by_group ) ) && empty( $custom_meta_rows ) ) {
-            echo '<div class="wuodc-panel"><p>' . esc_html__( 'No copyable details are available for this order.', 'woouseful-order-details-copier' ) . '</p></div>';
+            echo '<div class="wuodc-panel"><p>' . esc_html__( 'No copyable details are available for this order.', 'phpvibe-order-details-copier' ) . '</p></div>';
             return;
         }
 
@@ -311,7 +311,7 @@ class OrderPanel {
 
         if ( ! empty( $custom_meta_rows ) && in_array( 'custom_meta', $enabled_groups, true ) ) {
             echo '<section class="wuodc-section wuodc-section-custom-meta">';
-            echo '<h4>' . esc_html__( 'Custom meta details', 'woouseful-order-details-copier' ) . '</h4>';
+            echo '<h4>' . esc_html__( 'Custom meta details', 'phpvibe-order-details-copier' ) . '</h4>';
 
             foreach ( $custom_meta_rows as $field_id => $row ) {
                 $this->render_copy_row( $field_id, $row );
@@ -379,7 +379,7 @@ class OrderPanel {
             return;
         }
 
-        echo '<div class="wuodc-badges" aria-label="' . esc_attr__( 'Order notes', 'woouseful-order-details-copier' ) . '">';
+        echo '<div class="wuodc-badges" aria-label="' . esc_attr__( 'Order notes', 'phpvibe-order-details-copier' ) . '">';
         foreach ( $badges as $badge ) {
             $label = (string) ( $badge['label'] ?? '' );
             $type  = sanitize_html_class( (string) ( $badge['type'] ?? 'neutral' ) );
@@ -406,7 +406,7 @@ class OrderPanel {
         }
 
         echo '<div class="wuodc-quick-bar">';
-        echo '<span class="wuodc-quick-label">' . esc_html__( 'Quick copy:', 'woouseful-order-details-copier' ) . '</span>';
+        echo '<span class="wuodc-quick-label">' . esc_html__( 'Quick copy:', 'phpvibe-order-details-copier' ) . '</span>';
 
         foreach ( $actions as $action_id => $action ) {
             $source_id = 'wuodc-quick-source-' . $order->get_id() . '-' . sanitize_key( $action_id );
@@ -423,7 +423,7 @@ class OrderPanel {
             if ( '' !== $whatsapp_url ) {
                 echo '<a class="button wuodc-whatsapp-button" href="' . esc_url( $whatsapp_url ) . '" target="_blank" rel="noopener noreferrer">';
                 echo '<span class="dashicons dashicons-format-chat" aria-hidden="true"></span>';
-                echo esc_html__( 'Open WhatsApp', 'woouseful-order-details-copier' );
+                echo esc_html__( 'Open WhatsApp', 'phpvibe-order-details-copier' );
                 echo '</a>';
             }
         }
@@ -454,9 +454,9 @@ class OrderPanel {
             echo '<input class="wuodc-copy-value" type="text" readonly value="' . esc_attr( $value ) . '">';
         }
 
-        echo '<button type="button" class="button-link wuodc-copy-button" aria-label="' . esc_attr( sprintf( __( 'Copy %s', 'woouseful-order-details-copier' ), $label ) ) . '" title="' . esc_attr__( 'Copy to clipboard', 'woouseful-order-details-copier' ) . '">';
+        echo '<button type="button" class="button-link wuodc-copy-button" aria-label="' . esc_attr( sprintf( __( 'Copy %s', 'phpvibe-order-details-copier' ), $label ) ) . '" title="' . esc_attr__( 'Copy to clipboard', 'phpvibe-order-details-copier' ) . '">';
         echo '<span class="dashicons dashicons-admin-page" aria-hidden="true"></span>';
-        echo '<span class="screen-reader-text">' . esc_html( sprintf( __( 'Copy %s', 'woouseful-order-details-copier' ), $label ) ) . '</span>';
+        echo '<span class="screen-reader-text">' . esc_html( sprintf( __( 'Copy %s', 'phpvibe-order-details-copier' ), $label ) ) . '</span>';
         echo '</button>';
 
         echo '</div>';

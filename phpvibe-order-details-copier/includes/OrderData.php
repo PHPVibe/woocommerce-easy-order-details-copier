@@ -2,10 +2,10 @@
 /**
  * Shared order data helpers.
  *
- * @package WooUseful_Order_Details_Copier
+ * @package PHPVibe_Order_Details_Copier
  */
 
-namespace Vibe\WooUseful\OrderDetailsCopier;
+namespace Vibe\PHPVibe\OrderDetailsCopier;
 
 use WC_Order;
 
@@ -181,35 +181,35 @@ final class OrderData {
     public static function quick_templates(): array {
         $templates = array(
             'courier'  => array(
-                'label' => __( 'Courier', 'woouseful-order-details-copier' ),
+                'label' => __( 'Courier', 'phpvibe-order-details-copier' ),
                 'icon'  => 'dashicons-location-alt',
             ),
             'contact'  => array(
-                'label' => __( 'Contact', 'woouseful-order-details-copier' ),
+                'label' => __( 'Contact', 'phpvibe-order-details-copier' ),
                 'icon'  => 'dashicons-phone',
             ),
             'shipping' => array(
-                'label' => __( 'Shipping', 'woouseful-order-details-copier' ),
+                'label' => __( 'Shipping', 'phpvibe-order-details-copier' ),
                 'icon'  => 'dashicons-archive',
             ),
             'billing'  => array(
-                'label' => __( 'Billing', 'woouseful-order-details-copier' ),
+                'label' => __( 'Billing', 'phpvibe-order-details-copier' ),
                 'icon'  => 'dashicons-clipboard',
             ),
             'invoice'  => array(
-                'label' => __( 'Invoice', 'woouseful-order-details-copier' ),
+                'label' => __( 'Invoice', 'phpvibe-order-details-copier' ),
                 'icon'  => 'dashicons-media-document',
             ),
             'summary'  => array(
-                'label' => __( 'Summary', 'woouseful-order-details-copier' ),
+                'label' => __( 'Summary', 'phpvibe-order-details-copier' ),
                 'icon'  => 'dashicons-list-view',
             ),
             'packing'  => array(
-                'label' => __( 'Prep list', 'woouseful-order-details-copier' ),
+                'label' => __( 'Prep list', 'phpvibe-order-details-copier' ),
                 'icon'  => 'dashicons-products',
             ),
             'spreadsheet'  => array(
-                'label' => __( 'Spreadsheet', 'woouseful-order-details-copier' ),
+                'label' => __( 'Spreadsheet', 'phpvibe-order-details-copier' ),
                 'icon'  => 'dashicons-editor-table',
             ),
         );
@@ -271,7 +271,7 @@ final class OrderData {
                             )
                         ),
                         self::has_shipping_address( $order ) ? self::country_name( $order->get_shipping_country() ) : self::country_name( $order->get_billing_country() ),
-                        sprintf( /* translators: %s: order number */ __( 'Order #%s', 'woouseful-order-details-copier' ), $order->get_order_number() ),
+                        sprintf( /* translators: %s: order number */ __( 'Order #%s', 'phpvibe-order-details-copier' ), $order->get_order_number() ),
                     )
                 );
                 break;
@@ -314,7 +314,7 @@ final class OrderData {
                         self::full_address( $order, 'billing' ),
                         $order->get_billing_email(),
                         $order->get_billing_phone(),
-                        sprintf( /* translators: %s: order number */ __( 'Order #%s', 'woouseful-order-details-copier' ), $order->get_order_number() ),
+                        sprintf( /* translators: %s: order number */ __( 'Order #%s', 'phpvibe-order-details-copier' ), $order->get_order_number() ),
                         self::formatted_order_total( $order ),
                     )
                 );
@@ -322,7 +322,7 @@ final class OrderData {
             case 'summary':
                 $value = self::join_lines(
                     array(
-                        sprintf( /* translators: %s: order number */ __( 'Order #%s', 'woouseful-order-details-copier' ), $order->get_order_number() ),
+                        sprintf( /* translators: %s: order number */ __( 'Order #%s', 'phpvibe-order-details-copier' ), $order->get_order_number() ),
                         self::billing_full_name( $order ),
                         $order->get_billing_phone(),
                         $order->get_billing_email(),
@@ -336,7 +336,7 @@ final class OrderData {
             case 'packing':
                 $value = self::join_lines(
                     array(
-                        sprintf( /* translators: %s: order number */ __( 'Order #%s', 'woouseful-order-details-copier' ), $order->get_order_number() ),
+                        sprintf( /* translators: %s: order number */ __( 'Order #%s', 'phpvibe-order-details-copier' ), $order->get_order_number() ),
                         self::billing_full_name( $order ),
                         self::order_items_summary( $order ),
                         self::shipping_method_line( $order ),
@@ -360,7 +360,7 @@ final class OrderData {
                 break;
             case 'whatsapp':
                 $value = self::render_template(
-                    __( 'Hello {first_name}, regarding your order #{order_number}, we wanted to contact you about your delivery details.', 'woouseful-order-details-copier' ),
+                    __( 'Hello {first_name}, regarding your order #{order_number}, we wanted to contact you about your delivery details.', 'phpvibe-order-details-copier' ),
                     $order
                 );
                 break;
@@ -519,7 +519,7 @@ final class OrderData {
             '{order_id}'               => '12345',
             '{order_number}'           => '12345',
             '{order_date}'             => '2026-06-14 12:30',
-            '{order_status}'           => __( 'Processing', 'woouseful-order-details-copier' ),
+            '{order_status}'           => __( 'Processing', 'phpvibe-order-details-copier' ),
             '{order_total}'            => '250.00 EUR',
             '{order_items}'            => "World coin x 1\nSilver medal x 2",
             '{first_name}'             => 'John',
@@ -569,40 +569,40 @@ final class OrderData {
 
         if ( '' === trim( self::shipping_phone( $order ) ) && '' === trim( (string) $order->get_billing_phone() ) ) {
             $badges[] = array(
-                'label' => __( 'Phone missing', 'woouseful-order-details-copier' ),
+                'label' => __( 'Phone missing', 'phpvibe-order-details-copier' ),
                 'type'  => 'warning',
             );
         }
 
         if ( ! $order->get_customer_id() ) {
             $badges[] = array(
-                'label' => __( 'Guest order', 'woouseful-order-details-copier' ),
+                'label' => __( 'Guest order', 'phpvibe-order-details-copier' ),
                 'type'  => 'neutral',
             );
         } elseif ( function_exists( 'wc_get_customer_order_count' ) && wc_get_customer_order_count( $order->get_customer_id() ) <= 1 ) {
             $badges[] = array(
-                'label' => __( 'First order', 'woouseful-order-details-copier' ),
+                'label' => __( 'First order', 'phpvibe-order-details-copier' ),
                 'type'  => 'info',
             );
         }
 
         if ( self::shipping_differs_from_billing( $order ) ) {
             $badges[] = array(
-                'label' => __( 'Billing ≠ shipping', 'woouseful-order-details-copier' ),
+                'label' => __( 'Billing ≠ shipping', 'phpvibe-order-details-copier' ),
                 'type'  => 'info',
             );
         }
 
         if ( '' !== trim( (string) $order->get_billing_company() ) ) {
             $badges[] = array(
-                'label' => __( 'Company order', 'woouseful-order-details-copier' ),
+                'label' => __( 'Company order', 'phpvibe-order-details-copier' ),
                 'type'  => 'neutral',
             );
         }
 
         if ( '' !== trim( (string) $order->get_customer_note() ) ) {
             $badges[] = array(
-                'label' => __( 'Customer note', 'woouseful-order-details-copier' ),
+                'label' => __( 'Customer note', 'phpvibe-order-details-copier' ),
                 'type'  => 'attention',
             );
         }
@@ -910,7 +910,7 @@ final class OrderData {
             return '';
         }
 
-        return sprintf( /* translators: %s: shipping method */ __( 'Shipping: %s', 'woouseful-order-details-copier' ), $shipping_method );
+        return sprintf( /* translators: %s: shipping method */ __( 'Shipping: %s', 'phpvibe-order-details-copier' ), $shipping_method );
     }
 
     /**

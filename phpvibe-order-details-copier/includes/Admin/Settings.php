@@ -2,14 +2,14 @@
 /**
  * Settings page.
  *
- * @package WooUseful_Order_Details_Copier
+ * @package PHPVibe_Order_Details_Copier
  */
 
-namespace Vibe\WooUseful\OrderDetailsCopier\Admin;
+namespace Vibe\PHPVibe\OrderDetailsCopier\Admin;
 
-use Vibe\WooUseful\OrderDetailsCopier\Fields;
-use Vibe\WooUseful\OrderDetailsCopier\OrderData;
-use Vibe\WooUseful\OrderDetailsCopier\Transform;
+use Vibe\PHPVibe\OrderDetailsCopier\Fields;
+use Vibe\PHPVibe\OrderDetailsCopier\OrderData;
+use Vibe\PHPVibe\OrderDetailsCopier\Transform;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -41,7 +41,7 @@ class Settings {
     public static function defaults(): array {
         return array(
             'enabled'          => 'yes',
-            'panel_title'      => __( 'Easy copy', 'woouseful-order-details-copier' ),
+            'panel_title'      => __( 'Easy copy', 'phpvibe-order-details-copier' ),
             'metabox_context'  => 'normal',
             'layout_density'   => 'comfortable',
             'hide_empty'       => 'yes',
@@ -70,17 +70,17 @@ class Settings {
         return array(
             array(
                 'enabled' => 'no',
-                'title'   => __( 'Courier with order number', 'woouseful-order-details-copier' ),
+                'title'   => __( 'Courier with order number', 'phpvibe-order-details-copier' ),
                 'content' => "Order #{order_number}\n{shipping_full_name}\n{shipping_phone}\n{shipping_full_address}",
             ),
             array(
                 'enabled' => 'no',
-                'title'   => __( 'Quick support note', 'woouseful-order-details-copier' ),
+                'title'   => __( 'Quick support note', 'phpvibe-order-details-copier' ),
                 'content' => "{full_name} - {phone} - {email}\nOrder #{order_number}",
             ),
             array(
                 'enabled' => 'yes',
-                'title'   => __( 'Courier handoff', 'woouseful-order-details-copier' ),
+                'title'   => __( 'Courier handoff', 'phpvibe-order-details-copier' ),
                 'content' => "{shipping_full_name}
 {shipping_phone}
 {shipping_address_1}
@@ -91,8 +91,8 @@ Order #{order_number}",
             ),
             array(
                 'enabled' => 'yes',
-                'title'   => __( 'WhatsApp delivery check', 'woouseful-order-details-copier' ),
-                'content' => __( 'Hello {first_name}, regarding your order #{order_number}, we wanted to confirm your delivery details.', 'woouseful-order-details-copier' ),
+                'title'   => __( 'WhatsApp delivery check', 'phpvibe-order-details-copier' ),
+                'content' => __( 'Hello {first_name}, regarding your order #{order_number}, we wanted to confirm your delivery details.', 'phpvibe-order-details-copier' ),
             ),
         );
     }
@@ -134,22 +134,22 @@ Order #{order_number}",
         return array(
             array(
                 'enabled'  => 'no',
-                'label'    => __( 'VAT / Tax ID', 'woouseful-order-details-copier' ),
+                'label'    => __( 'VAT / Tax ID', 'phpvibe-order-details-copier' ),
                 'meta_key' => '_billing_cui',
             ),
             array(
                 'enabled'  => 'no',
-                'label'    => __( 'Company registration number', 'woouseful-order-details-copier' ),
+                'label'    => __( 'Company registration number', 'phpvibe-order-details-copier' ),
                 'meta_key' => '_billing_nr_reg_com',
             ),
             array(
                 'enabled'  => 'no',
-                'label'    => __( 'Invoice series', 'woouseful-order-details-copier' ),
+                'label'    => __( 'Invoice series', 'phpvibe-order-details-copier' ),
                 'meta_key' => '',
             ),
             array(
                 'enabled'  => 'no',
-                'label'    => __( 'Internal reference', 'woouseful-order-details-copier' ),
+                'label'    => __( 'Internal reference', 'phpvibe-order-details-copier' ),
                 'meta_key' => '',
             ),
             array(
@@ -176,7 +176,7 @@ Order #{order_number}",
         $settings['enable_smart_badges'] = 'no' === ( $settings['enable_smart_badges'] ?? 'yes' ) ? 'no' : 'yes';
         $settings['enable_whatsapp'] = 'no' === ( $settings['enable_whatsapp'] ?? 'yes' ) ? 'no' : 'yes';
         $settings['clean_copied_text'] = 'no' === ( $settings['clean_copied_text'] ?? 'yes' ) ? 'no' : 'yes';
-        $settings['panel_title']     = isset( $settings['panel_title'] ) && '' !== trim( (string) $settings['panel_title'] ) ? (string) $settings['panel_title'] : __( 'Easy copy', 'woouseful-order-details-copier' );
+        $settings['panel_title']     = isset( $settings['panel_title'] ) && '' !== trim( (string) $settings['panel_title'] ) ? (string) $settings['panel_title'] : __( 'Easy copy', 'phpvibe-order-details-copier' );
         $settings['metabox_context'] = in_array( $settings['metabox_context'], array( 'normal', 'side', 'advanced' ), true ) ? $settings['metabox_context'] : 'normal';
         $settings['layout_density']  = in_array( $settings['layout_density'], array( 'comfortable', 'compact' ), true ) ? $settings['layout_density'] : 'comfortable';
 
@@ -281,7 +281,7 @@ Order #{order_number}",
 
         return array(
             'enabled'          => ! empty( $input['enabled'] ) ? 'yes' : 'no',
-            'panel_title'      => isset( $input['panel_title'] ) && '' !== trim( (string) $input['panel_title'] ) ? sanitize_text_field( wp_unslash( (string) $input['panel_title'] ) ) : __( 'Easy copy', 'woouseful-order-details-copier' ),
+            'panel_title'      => isset( $input['panel_title'] ) && '' !== trim( (string) $input['panel_title'] ) ? sanitize_text_field( wp_unslash( (string) $input['panel_title'] ) ) : __( 'Easy copy', 'phpvibe-order-details-copier' ),
             'metabox_context'  => $context,
             'layout_density'   => $density,
             'hide_empty'       => ! empty( $input['hide_empty'] ) ? 'yes' : 'no',
@@ -339,12 +339,12 @@ Order #{order_number}",
         $settings = self::get_all();
 
         return array(
-            'copied'            => __( 'Copied', 'woouseful-order-details-copier' ),
-            'copy'              => __( 'Copy', 'woouseful-order-details-copier' ),
-            'failed'            => __( 'Could not copy', 'woouseful-order-details-copier' ),
-            'nothingSelected'   => __( 'Select one or more orders first.', 'woouseful-order-details-copier' ),
-            'nothingToCopy'     => __( 'Nothing available to copy.', 'woouseful-order-details-copier' ),
-            'bulkCopied'        => __( 'Selected orders copied', 'woouseful-order-details-copier' ),
+            'copied'            => __( 'Copied', 'phpvibe-order-details-copier' ),
+            'copy'              => __( 'Copy', 'phpvibe-order-details-copier' ),
+            'failed'            => __( 'Could not copy', 'phpvibe-order-details-copier' ),
+            'nothingSelected'   => __( 'Select one or more orders first.', 'phpvibe-order-details-copier' ),
+            'nothingToCopy'     => __( 'Nothing available to copy.', 'phpvibe-order-details-copier' ),
+            'bulkCopied'        => __( 'Selected orders copied', 'phpvibe-order-details-copier' ),
             'cleanCopiedText'   => 'yes' === $settings['clean_copied_text'],
             'sampleVariables'   => OrderData::sample_variables(),
         );
@@ -358,8 +358,8 @@ Order #{order_number}",
     public function add_menu_page(): void {
         add_submenu_page(
             'woocommerce',
-            __( 'WooUseful Order Details Copier', 'woouseful-order-details-copier' ),
-            __( 'Order Details Copier', 'woouseful-order-details-copier' ),
+            __( 'PHPVibe Order Details Copier', 'phpvibe-order-details-copier' ),
+            __( 'Order Details Copier', 'phpvibe-order-details-copier' ),
             'manage_woocommerce',
             'wuodc-order-details-copier',
             array( $this, 'render_page' )
@@ -374,7 +374,7 @@ Order #{order_number}",
      */
     public function plugin_action_links( array $links ): array {
         $url = admin_url( 'admin.php?page=wuodc-order-details-copier' );
-        array_unshift( $links, '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'woouseful-order-details-copier' ) . '</a>' );
+        array_unshift( $links, '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'phpvibe-order-details-copier' ) . '</a>' );
 
         return $links;
     }
@@ -386,7 +386,7 @@ Order #{order_number}",
      */
     public function render_page(): void {
         if ( ! current_user_can( 'manage_woocommerce' ) ) {
-            wp_die( esc_html__( 'You do not have permission to access this page.', 'woouseful-order-details-copier' ) );
+            wp_die( esc_html__( 'You do not have permission to access this page.', 'phpvibe-order-details-copier' ) );
         }
 
         $settings       = self::get_all();
@@ -400,18 +400,18 @@ Order #{order_number}",
         $custom_meta_fields = $settings['custom_meta_fields'];
         ?>
         <div class="wrap wuodc-settings-wrap">
-            <h1><?php echo esc_html__( 'WooUseful Order Details Copier', 'woouseful-order-details-copier' ); ?></h1>
+            <h1><?php echo esc_html__( 'PHPVibe Order Details Copier', 'phpvibe-order-details-copier' ); ?></h1>
             <div class="wuodc-settings-hero">
                 <div>
-                    <p class="wuodc-kicker"><?php echo esc_html__( 'Free WooUseful utility', 'woouseful-order-details-copier' ); ?></p>
-                    <h2><?php echo esc_html__( 'One-click order handoff for real store work.', 'woouseful-order-details-copier' ); ?></h2>
-                    <p><?php echo esc_html__( 'Copy clean customer, address, courier, invoice, support, and order details from the order screen or orders list without selecting messy WooCommerce address blocks.', 'woouseful-order-details-copier' ); ?></p>
+                    <p class="wuodc-kicker"><?php echo esc_html__( 'Free PHPVibe utility', 'phpvibe-order-details-copier' ); ?></p>
+                    <h2><?php echo esc_html__( 'One-click order handoff for real store work.', 'phpvibe-order-details-copier' ); ?></h2>
+                    <p><?php echo esc_html__( 'Copy clean customer, address, courier, invoice, support, and order details from the order screen or orders list without selecting messy WooCommerce address blocks.', 'phpvibe-order-details-copier' ); ?></p>
                 </div>
-                <div class="wuodc-hero-pills" aria-label="<?php echo esc_attr__( 'Included features', 'woouseful-order-details-copier' ); ?>">
-                    <span><?php echo esc_html__( 'HPOS ready', 'woouseful-order-details-copier' ); ?></span>
-                    <span><?php echo esc_html__( 'No tracking', 'woouseful-order-details-copier' ); ?></span>
-                    <span><?php echo esc_html__( 'No external calls', 'woouseful-order-details-copier' ); ?></span>
-                    <span><?php echo esc_html__( 'Translation ready', 'woouseful-order-details-copier' ); ?></span>
+                <div class="wuodc-hero-pills" aria-label="<?php echo esc_attr__( 'Included features', 'phpvibe-order-details-copier' ); ?>">
+                    <span><?php echo esc_html__( 'HPOS ready', 'phpvibe-order-details-copier' ); ?></span>
+                    <span><?php echo esc_html__( 'No tracking', 'phpvibe-order-details-copier' ); ?></span>
+                    <span><?php echo esc_html__( 'No external calls', 'phpvibe-order-details-copier' ); ?></span>
+                    <span><?php echo esc_html__( 'Translation ready', 'phpvibe-order-details-copier' ); ?></span>
                 </div>
             </div>
 
@@ -419,74 +419,74 @@ Order #{order_number}",
                 <?php settings_fields( 'wuodc_settings_group' ); ?>
 
                 <div class="wuodc-settings-card">
-                    <h2><?php echo esc_html__( 'General', 'woouseful-order-details-copier' ); ?></h2>
+                    <h2><?php echo esc_html__( 'General', 'phpvibe-order-details-copier' ); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
-                                <th scope="row"><?php echo esc_html__( 'Enable Easy Copy panel', 'woouseful-order-details-copier' ); ?></th>
+                                <th scope="row"><?php echo esc_html__( 'Enable Easy Copy panel', 'phpvibe-order-details-copier' ); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enabled]" value="1" <?php checked( $settings['enabled'], 'yes' ); ?>>
-                                        <?php echo esc_html__( 'Show the panel on WooCommerce order edit screens.', 'woouseful-order-details-copier' ); ?>
+                                        <?php echo esc_html__( 'Show the panel on WooCommerce order edit screens.', 'phpvibe-order-details-copier' ); ?>
                                     </label>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php echo esc_html__( 'Panel title', 'woouseful-order-details-copier' ); ?></th>
+                                <th scope="row"><?php echo esc_html__( 'Panel title', 'phpvibe-order-details-copier' ); ?></th>
                                 <td>
                                     <input type="text" class="regular-text" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[panel_title]" value="<?php echo esc_attr( $settings['panel_title'] ); ?>">
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php echo esc_html__( 'Panel location', 'woouseful-order-details-copier' ); ?></th>
+                                <th scope="row"><?php echo esc_html__( 'Panel location', 'phpvibe-order-details-copier' ); ?></th>
                                 <td>
                                     <select name="<?php echo esc_attr( self::OPTION_NAME ); ?>[metabox_context]">
-                                        <option value="normal" <?php selected( $settings['metabox_context'], 'normal' ); ?>><?php echo esc_html__( 'Main column', 'woouseful-order-details-copier' ); ?></option>
-                                        <option value="side" <?php selected( $settings['metabox_context'], 'side' ); ?>><?php echo esc_html__( 'Right sidebar', 'woouseful-order-details-copier' ); ?></option>
-                                        <option value="advanced" <?php selected( $settings['metabox_context'], 'advanced' ); ?>><?php echo esc_html__( 'Advanced section', 'woouseful-order-details-copier' ); ?></option>
+                                        <option value="normal" <?php selected( $settings['metabox_context'], 'normal' ); ?>><?php echo esc_html__( 'Main column', 'phpvibe-order-details-copier' ); ?></option>
+                                        <option value="side" <?php selected( $settings['metabox_context'], 'side' ); ?>><?php echo esc_html__( 'Right sidebar', 'phpvibe-order-details-copier' ); ?></option>
+                                        <option value="advanced" <?php selected( $settings['metabox_context'], 'advanced' ); ?>><?php echo esc_html__( 'Advanced section', 'phpvibe-order-details-copier' ); ?></option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php echo esc_html__( 'Panel density', 'woouseful-order-details-copier' ); ?></th>
+                                <th scope="row"><?php echo esc_html__( 'Panel density', 'phpvibe-order-details-copier' ); ?></th>
                                 <td>
                                     <select name="<?php echo esc_attr( self::OPTION_NAME ); ?>[layout_density]">
-                                        <option value="comfortable" <?php selected( $settings['layout_density'], 'comfortable' ); ?>><?php echo esc_html__( 'Comfortable', 'woouseful-order-details-copier' ); ?></option>
-                                        <option value="compact" <?php selected( $settings['layout_density'], 'compact' ); ?>><?php echo esc_html__( 'Compact', 'woouseful-order-details-copier' ); ?></option>
+                                        <option value="comfortable" <?php selected( $settings['layout_density'], 'comfortable' ); ?>><?php echo esc_html__( 'Comfortable', 'phpvibe-order-details-copier' ); ?></option>
+                                        <option value="compact" <?php selected( $settings['layout_density'], 'compact' ); ?>><?php echo esc_html__( 'Compact', 'phpvibe-order-details-copier' ); ?></option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php echo esc_html__( 'Empty details', 'woouseful-order-details-copier' ); ?></th>
+                                <th scope="row"><?php echo esc_html__( 'Empty details', 'phpvibe-order-details-copier' ); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[hide_empty]" value="1" <?php checked( $settings['hide_empty'], 'yes' ); ?>>
-                                        <?php echo esc_html__( 'Hide fields that are empty for the current order.', 'woouseful-order-details-copier' ); ?>
+                                        <?php echo esc_html__( 'Hide fields that are empty for the current order.', 'phpvibe-order-details-copier' ); ?>
                                     </label>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php echo esc_html__( 'Wow features', 'woouseful-order-details-copier' ); ?></th>
+                                <th scope="row"><?php echo esc_html__( 'Wow features', 'phpvibe-order-details-copier' ); ?></th>
                                 <td class="wuodc-checkbox-stack">
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enable_quick_bar]" value="1" <?php checked( $settings['enable_quick_bar'], 'yes' ); ?>>
-                                        <?php echo esc_html__( 'Show the Quick Copy bar on the order screen.', 'woouseful-order-details-copier' ); ?>
+                                        <?php echo esc_html__( 'Show the Quick Copy bar on the order screen.', 'phpvibe-order-details-copier' ); ?>
                                     </label>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enable_order_list]" value="1" <?php checked( $settings['enable_order_list'], 'yes' ); ?>>
-                                        <?php echo esc_html__( 'Add copy dropdowns and bulk copy tools to the orders list.', 'woouseful-order-details-copier' ); ?>
+                                        <?php echo esc_html__( 'Add copy dropdowns and bulk copy tools to the orders list.', 'phpvibe-order-details-copier' ); ?>
                                     </label>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enable_smart_badges]" value="1" <?php checked( $settings['enable_smart_badges'], 'yes' ); ?>>
-                                        <?php echo esc_html__( 'Show smart badges such as guest order, missing phone, different shipping, and customer note.', 'woouseful-order-details-copier' ); ?>
+                                        <?php echo esc_html__( 'Show smart badges such as guest order, missing phone, different shipping, and customer note.', 'phpvibe-order-details-copier' ); ?>
                                     </label>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enable_whatsapp]" value="1" <?php checked( $settings['enable_whatsapp'], 'yes' ); ?>>
-                                        <?php echo esc_html__( 'Show Open WhatsApp actions when a phone number is available.', 'woouseful-order-details-copier' ); ?>
+                                        <?php echo esc_html__( 'Show Open WhatsApp actions when a phone number is available.', 'phpvibe-order-details-copier' ); ?>
                                     </label>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[clean_copied_text]" value="1" <?php checked( $settings['clean_copied_text'], 'yes' ); ?>>
-                                        <?php echo esc_html__( 'Clean copied text in the browser before it reaches the clipboard.', 'woouseful-order-details-copier' ); ?>
+                                        <?php echo esc_html__( 'Clean copied text in the browser before it reaches the clipboard.', 'phpvibe-order-details-copier' ); ?>
                                     </label>
                                 </td>
                             </tr>
@@ -495,8 +495,8 @@ Order #{order_number}",
                 </div>
 
                 <div class="wuodc-settings-card">
-                    <h2><?php echo esc_html__( 'Groups', 'woouseful-order-details-copier' ); ?></h2>
-                    <p><?php echo esc_html__( 'Disable a full group when you do not want it displayed in the order panel.', 'woouseful-order-details-copier' ); ?></p>
+                    <h2><?php echo esc_html__( 'Groups', 'phpvibe-order-details-copier' ); ?></h2>
+                    <p><?php echo esc_html__( 'Disable a full group when you do not want it displayed in the order panel.', 'phpvibe-order-details-copier' ); ?></p>
                     <div class="wuodc-settings-groups">
                         <?php foreach ( $groups as $group_id => $group_label ) : ?>
                             <label>
@@ -510,12 +510,12 @@ Order #{order_number}",
                 <div class="wuodc-settings-card">
                     <div class="wuodc-settings-card-heading">
                         <div>
-                            <h2><?php echo esc_html__( 'Copyable details', 'woouseful-order-details-copier' ); ?></h2>
-                            <p><?php echo esc_html__( 'Enable, rename, and drag fields to change their order. Every enabled detail keeps its own copy-to-clipboard button.', 'woouseful-order-details-copier' ); ?></p>
+                            <h2><?php echo esc_html__( 'Copyable details', 'phpvibe-order-details-copier' ); ?></h2>
+                            <p><?php echo esc_html__( 'Enable, rename, and drag fields to change their order. Every enabled detail keeps its own copy-to-clipboard button.', 'phpvibe-order-details-copier' ); ?></p>
                         </div>
                         <div class="wuodc-field-toggle-actions" data-wuodc-field-toggle-actions>
-                            <button type="button" class="button" data-wuodc-fields-enable><?php echo esc_html__( 'Enable all', 'woouseful-order-details-copier' ); ?></button>
-                            <button type="button" class="button" data-wuodc-fields-disable><?php echo esc_html__( 'Disable all', 'woouseful-order-details-copier' ); ?></button>
+                            <button type="button" class="button" data-wuodc-fields-enable><?php echo esc_html__( 'Enable all', 'phpvibe-order-details-copier' ); ?></button>
+                            <button type="button" class="button" data-wuodc-fields-disable><?php echo esc_html__( 'Disable all', 'phpvibe-order-details-copier' ); ?></button>
                         </div>
                     </div>
                     <input type="hidden" class="wuodc-field-order-input" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[field_order]" value="<?php echo esc_attr( implode( ',', $field_order ) ); ?>">
@@ -536,7 +536,7 @@ Order #{order_number}",
                                 <span class="dashicons dashicons-menu wuodc-sort-handle" aria-hidden="true"></span>
                                 <label class="wuodc-sort-enabled">
                                     <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enabled_fields][]" value="<?php echo esc_attr( $field_id ); ?>" <?php checked( in_array( $field_id, $enabled_fields, true ) ); ?>>
-                                    <?php echo esc_html__( 'Enabled', 'woouseful-order-details-copier' ); ?>
+                                    <?php echo esc_html__( 'Enabled', 'phpvibe-order-details-copier' ); ?>
                                 </label>
                                 <div class="wuodc-sort-main">
                                     <strong><?php echo esc_html( $label ); ?></strong>
@@ -545,23 +545,23 @@ Order #{order_number}",
                                 <input type="text" class="regular-text" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[field_labels][<?php echo esc_attr( $field_id ); ?>]" value="<?php echo esc_attr( $custom ); ?>" placeholder="<?php echo esc_attr( $label ); ?>">
                                 <?php $cleaner = $field_cleaners[ $field_id ] ?? array(); ?>
                                 <details class="wuodc-cleaner-details">
-                                    <summary><?php echo esc_html__( 'Text cleaner', 'woouseful-order-details-copier' ); ?></summary>
+                                    <summary><?php echo esc_html__( 'Text cleaner', 'phpvibe-order-details-copier' ); ?></summary>
                                     <div class="wuodc-cleaner-grid">
-                                        <label><?php echo esc_html__( 'Trim', 'woouseful-order-details-copier' ); ?>
+                                        <label><?php echo esc_html__( 'Trim', 'phpvibe-order-details-copier' ); ?>
                                             <select name="<?php echo esc_attr( self::OPTION_NAME ); ?>[field_cleaners][<?php echo esc_attr( $field_id ); ?>][trim]">
-                                                <option value="none" <?php selected( $cleaner['trim'] ?? 'none', 'none' ); ?>><?php echo esc_html__( 'None', 'woouseful-order-details-copier' ); ?></option>
-                                                <option value="left" <?php selected( $cleaner['trim'] ?? '', 'left' ); ?>><?php echo esc_html__( 'Left trim', 'woouseful-order-details-copier' ); ?></option>
-                                                <option value="right" <?php selected( $cleaner['trim'] ?? '', 'right' ); ?>><?php echo esc_html__( 'Right trim', 'woouseful-order-details-copier' ); ?></option>
-                                                <option value="both" <?php selected( $cleaner['trim'] ?? '', 'both' ); ?>><?php echo esc_html__( 'Trim both', 'woouseful-order-details-copier' ); ?></option>
+                                                <option value="none" <?php selected( $cleaner['trim'] ?? 'none', 'none' ); ?>><?php echo esc_html__( 'None', 'phpvibe-order-details-copier' ); ?></option>
+                                                <option value="left" <?php selected( $cleaner['trim'] ?? '', 'left' ); ?>><?php echo esc_html__( 'Left trim', 'phpvibe-order-details-copier' ); ?></option>
+                                                <option value="right" <?php selected( $cleaner['trim'] ?? '', 'right' ); ?>><?php echo esc_html__( 'Right trim', 'phpvibe-order-details-copier' ); ?></option>
+                                                <option value="both" <?php selected( $cleaner['trim'] ?? '', 'both' ); ?>><?php echo esc_html__( 'Trim both', 'phpvibe-order-details-copier' ); ?></option>
                                             </select>
                                         </label>
-                                        <label><?php echo esc_html__( 'Remove leading prefix', 'woouseful-order-details-copier' ); ?>
+                                        <label><?php echo esc_html__( 'Remove leading prefix', 'phpvibe-order-details-copier' ); ?>
                                             <input type="text" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[field_cleaners][<?php echo esc_attr( $field_id ); ?>][remove_prefix]" value="<?php echo esc_attr( $cleaner['remove_prefix'] ?? '' ); ?>" placeholder="+4">
                                         </label>
-                                        <label><?php echo esc_html__( 'Regex find', 'woouseful-order-details-copier' ); ?>
+                                        <label><?php echo esc_html__( 'Regex find', 'phpvibe-order-details-copier' ); ?>
                                             <input type="text" class="code" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[field_cleaners][<?php echo esc_attr( $field_id ); ?>][regex_pattern]" value="<?php echo esc_attr( $cleaner['regex_pattern'] ?? '' ); ?>" placeholder="/[^0-9]/">
                                         </label>
-                                        <label><?php echo esc_html__( 'Regex replace', 'woouseful-order-details-copier' ); ?>
+                                        <label><?php echo esc_html__( 'Regex replace', 'phpvibe-order-details-copier' ); ?>
                                             <input type="text" class="code" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[field_cleaners][<?php echo esc_attr( $field_id ); ?>][regex_replacement]" value="<?php echo esc_attr( $cleaner['regex_replacement'] ?? '' ); ?>">
                                         </label>
                                     </div>
@@ -574,38 +574,38 @@ Order #{order_number}",
                 <div class="wuodc-settings-card wuodc-derived-fields-card">
                     <div class="wuodc-derived-fields-intro">
                         <div>
-                            <span class="wuodc-settings-kicker"><?php echo esc_html__( 'Field builder', 'woouseful-order-details-copier' ); ?></span>
-                            <h2><?php echo esc_html__( 'Derived copy fields', 'woouseful-order-details-copier' ); ?></h2>
-                            <p><?php echo esc_html__( 'Build additional copy boxes by extracting part of an existing order field. This is where you can split an address into Street and Street Number.', 'woouseful-order-details-copier' ); ?></p>
+                            <span class="wuodc-settings-kicker"><?php echo esc_html__( 'Field builder', 'phpvibe-order-details-copier' ); ?></span>
+                            <h2><?php echo esc_html__( 'Derived copy fields', 'phpvibe-order-details-copier' ); ?></h2>
+                            <p><?php echo esc_html__( 'Build additional copy boxes by extracting part of an existing order field. This is where you can split an address into Street and Street Number.', 'phpvibe-order-details-copier' ); ?></p>
                         </div>
-                        <button type="button" class="button button-secondary" data-wuodc-street-example><?php echo esc_html__( 'Load street + number example', 'woouseful-order-details-copier' ); ?></button>
+                        <button type="button" class="button button-secondary" data-wuodc-street-example><?php echo esc_html__( 'Load street + number example', 'phpvibe-order-details-copier' ); ?></button>
                     </div>
                     <div class="wuodc-extractor-list" data-wuodc-extractor-list>
                         <?php foreach ( $settings['extractors'] as $index => $extractor ) : ?>
                             <div class="wuodc-extractor-row" data-wuodc-extractor-row="<?php echo esc_attr( (string) $index ); ?>">
                                 <div class="wuodc-extractor-row-head">
-                                    <strong><?php echo esc_html( sprintf( __( 'Derived field %d', 'woouseful-order-details-copier' ), $index + 1 ) ); ?></strong>
-                                    <label class="wuodc-extractor-enabled"><input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][enabled]" value="1" <?php checked( $extractor['enabled'], 'yes' ); ?>> <?php echo esc_html__( 'Enable this field', 'woouseful-order-details-copier' ); ?></label>
+                                    <strong><?php echo esc_html( sprintf( __( 'Derived field %d', 'phpvibe-order-details-copier' ), $index + 1 ) ); ?></strong>
+                                    <label class="wuodc-extractor-enabled"><input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][enabled]" value="1" <?php checked( $extractor['enabled'], 'yes' ); ?>> <?php echo esc_html__( 'Enable this field', 'phpvibe-order-details-copier' ); ?></label>
                                 </div>
                                 <div class="wuodc-extractor-grid">
-                                    <label><?php echo esc_html__( 'Copy box label', 'woouseful-order-details-copier' ); ?><input type="text" data-wuodc-extractor-label name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][label]" value="<?php echo esc_attr( $extractor['label'] ); ?>" placeholder="Street"></label>
-                                    <label><?php echo esc_html__( 'Read value from', 'woouseful-order-details-copier' ); ?><select data-wuodc-extractor-source name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][source_field]">
+                                    <label><?php echo esc_html__( 'Copy box label', 'phpvibe-order-details-copier' ); ?><input type="text" data-wuodc-extractor-label name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][label]" value="<?php echo esc_attr( $extractor['label'] ); ?>" placeholder="Street"></label>
+                                    <label><?php echo esc_html__( 'Read value from', 'phpvibe-order-details-copier' ); ?><select data-wuodc-extractor-source name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][source_field]">
                                         <?php foreach ( $definitions as $source_id => $source_definition ) : ?><option value="<?php echo esc_attr( $source_id ); ?>" <?php selected( $extractor['source_field'], $source_id ); ?>><?php echo esc_html( $source_definition['label'] ?? $source_id ); ?></option><?php endforeach; ?>
                                     </select></label>
-                                    <label class="wuodc-extractor-pattern"><?php echo esc_html__( 'Matching rule (regular expression)', 'woouseful-order-details-copier' ); ?><input type="text" data-wuodc-extractor-pattern class="code" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][pattern]" value="<?php echo esc_attr( $extractor['pattern'] ); ?>" placeholder="/^(.*?)\s+(?:no\.?|nr\.?|#)\s*(\d+)$/iu"></label>
-                                    <label><?php echo esc_html__( 'Use captured part', 'woouseful-order-details-copier' ); ?><input type="number" data-wuodc-extractor-group min="0" max="99" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][capture_group]" value="<?php echo esc_attr( (string) $extractor['capture_group'] ); ?>"><span class="description"><?php echo esc_html__( 'Usually 1, 2, 3…', 'woouseful-order-details-copier' ); ?></span></label>
-                                    <label><?php echo esc_html__( 'Trim extracted value', 'woouseful-order-details-copier' ); ?><select name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][trim]"><option value="none" <?php selected( $extractor['trim'], 'none' ); ?>><?php echo esc_html__( 'None', 'woouseful-order-details-copier' ); ?></option><option value="left" <?php selected( $extractor['trim'], 'left' ); ?>><?php echo esc_html__( 'Left', 'woouseful-order-details-copier' ); ?></option><option value="right" <?php selected( $extractor['trim'], 'right' ); ?>><?php echo esc_html__( 'Right', 'woouseful-order-details-copier' ); ?></option><option value="both" <?php selected( $extractor['trim'], 'both' ); ?>><?php echo esc_html__( 'Both sides', 'woouseful-order-details-copier' ); ?></option></select></label>
-                                    <label><?php echo esc_html__( 'Remove leading prefix', 'woouseful-order-details-copier' ); ?><input type="text" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][remove_prefix]" value="<?php echo esc_attr( $extractor['remove_prefix'] ); ?>" placeholder="+4"></label>
+                                    <label class="wuodc-extractor-pattern"><?php echo esc_html__( 'Matching rule (regular expression)', 'phpvibe-order-details-copier' ); ?><input type="text" data-wuodc-extractor-pattern class="code" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][pattern]" value="<?php echo esc_attr( $extractor['pattern'] ); ?>" placeholder="/^(.*?)\s+(?:no\.?|nr\.?|#)\s*(\d+)$/iu"></label>
+                                    <label><?php echo esc_html__( 'Use captured part', 'phpvibe-order-details-copier' ); ?><input type="number" data-wuodc-extractor-group min="0" max="99" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][capture_group]" value="<?php echo esc_attr( (string) $extractor['capture_group'] ); ?>"><span class="description"><?php echo esc_html__( 'Usually 1, 2, 3…', 'phpvibe-order-details-copier' ); ?></span></label>
+                                    <label><?php echo esc_html__( 'Trim extracted value', 'phpvibe-order-details-copier' ); ?><select name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][trim]"><option value="none" <?php selected( $extractor['trim'], 'none' ); ?>><?php echo esc_html__( 'None', 'phpvibe-order-details-copier' ); ?></option><option value="left" <?php selected( $extractor['trim'], 'left' ); ?>><?php echo esc_html__( 'Left', 'phpvibe-order-details-copier' ); ?></option><option value="right" <?php selected( $extractor['trim'], 'right' ); ?>><?php echo esc_html__( 'Right', 'phpvibe-order-details-copier' ); ?></option><option value="both" <?php selected( $extractor['trim'], 'both' ); ?>><?php echo esc_html__( 'Both sides', 'phpvibe-order-details-copier' ); ?></option></select></label>
+                                    <label><?php echo esc_html__( 'Remove leading prefix', 'phpvibe-order-details-copier' ); ?><input type="text" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[extractors][<?php echo esc_attr( (string) $index ); ?>][remove_prefix]" value="<?php echo esc_attr( $extractor['remove_prefix'] ); ?>" placeholder="+4"></label>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <div class="wuodc-derived-help"><strong><?php echo esc_html__( 'How the street example works:', 'woouseful-order-details-copier' ); ?></strong> <?php echo esc_html__( 'The first generated field uses capture 1 for the street text. The second uses capture 2 for the house number. Both read Shipping address line 1.', 'woouseful-order-details-copier' ); ?></div>
+                    <div class="wuodc-derived-help"><strong><?php echo esc_html__( 'How the street example works:', 'phpvibe-order-details-copier' ); ?></strong> <?php echo esc_html__( 'The first generated field uses capture 1 for the street text. The second uses capture 2 for the house number. Both read Shipping address line 1.', 'phpvibe-order-details-copier' ); ?></div>
                 </div>
 
                 <div class="wuodc-settings-card">
-                    <h2><?php echo esc_html__( 'Custom copy templates', 'woouseful-order-details-copier' ); ?></h2>
-                    <p><?php echo esc_html__( 'Create admin-defined blocks for courier labels, WhatsApp messages, support notes, spreadsheets, or invoice workflows.', 'woouseful-order-details-copier' ); ?></p>
+                    <h2><?php echo esc_html__( 'Custom copy templates', 'phpvibe-order-details-copier' ); ?></h2>
+                    <p><?php echo esc_html__( 'Create admin-defined blocks for courier labels, WhatsApp messages, support notes, spreadsheets, or invoice workflows.', 'phpvibe-order-details-copier' ); ?></p>
 
                     <div class="wuodc-template-grid">
                         <?php foreach ( $settings['custom_templates'] as $index => $template ) : ?>
@@ -613,22 +613,22 @@ Order #{order_number}",
                                 <div class="inside">
                                     <label class="wuodc-template-enabled">
                                         <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[custom_templates][<?php echo esc_attr( (string) $index ); ?>][enabled]" value="1" <?php checked( $template['enabled'], 'yes' ); ?>>
-                                        <?php echo esc_html__( 'Enable this template', 'woouseful-order-details-copier' ); ?>
+                                        <?php echo esc_html__( 'Enable this template', 'phpvibe-order-details-copier' ); ?>
                                     </label>
                                     <p>
                                         <label>
-                                            <?php echo esc_html__( 'Template title', 'woouseful-order-details-copier' ); ?><br>
+                                            <?php echo esc_html__( 'Template title', 'phpvibe-order-details-copier' ); ?><br>
                                             <input type="text" class="widefat" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[custom_templates][<?php echo esc_attr( (string) $index ); ?>][title]" value="<?php echo esc_attr( $template['title'] ); ?>">
                                         </label>
                                     </p>
                                     <p>
                                         <label>
-                                            <?php echo esc_html__( 'Template content', 'woouseful-order-details-copier' ); ?><br>
+                                            <?php echo esc_html__( 'Template content', 'phpvibe-order-details-copier' ); ?><br>
                                             <textarea class="widefat code wuodc-template-content" data-wuodc-template-content rows="5" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[custom_templates][<?php echo esc_attr( (string) $index ); ?>][content]"><?php echo esc_textarea( $template['content'] ); ?></textarea>
                                         </label>
                                     </p>
                                     <div class="wuodc-template-preview">
-                                        <strong><?php echo esc_html__( 'Live preview', 'woouseful-order-details-copier' ); ?></strong>
+                                        <strong><?php echo esc_html__( 'Live preview', 'phpvibe-order-details-copier' ); ?></strong>
                                         <pre class="wuodc-template-preview-code" aria-live="polite"></pre>
                                     </div>
                                 </div>
@@ -637,8 +637,8 @@ Order #{order_number}",
                     </div>
 
                     <details class="wuodc-variables" open>
-                        <summary><?php echo esc_html__( 'Available variables', 'woouseful-order-details-copier' ); ?></summary>
-                        <p><?php echo esc_html__( 'Use these placeholders inside custom template content:', 'woouseful-order-details-copier' ); ?></p>
+                        <summary><?php echo esc_html__( 'Available variables', 'phpvibe-order-details-copier' ); ?></summary>
+                        <p><?php echo esc_html__( 'Use these placeholders inside custom template content:', 'phpvibe-order-details-copier' ); ?></p>
                         <div class="wuodc-variable-list">
                             <?php foreach ( self::variable_reference() as $variable ) : ?>
                                 <button type="button" class="wuodc-variable-chip" data-wuodc-variable="<?php echo esc_attr( $variable ); ?>"><code><?php echo esc_html( $variable ); ?></code></button>
@@ -648,10 +648,10 @@ Order #{order_number}",
                 </div>
 
                 <div class="wuodc-settings-card">
-                    <h2><?php echo esc_html__( 'Custom order meta fields', 'woouseful-order-details-copier' ); ?></h2>
-                    <p><?php echo esc_html__( 'Expose extra order meta from invoice, tax, ERP, auction, courier, or checkout-field plugins as copyable rows. Leave unused rows disabled.', 'woouseful-order-details-copier' ); ?></p>
+                    <h2><?php echo esc_html__( 'Custom order meta fields', 'phpvibe-order-details-copier' ); ?></h2>
+                    <p><?php echo esc_html__( 'Expose extra order meta from invoice, tax, ERP, auction, courier, or checkout-field plugins as copyable rows. Leave unused rows disabled.', 'phpvibe-order-details-copier' ); ?></p>
                     <p class="description">
-                        <?php echo esc_html__( 'Template tip: custom templates can also use dynamic meta variables such as {meta:_billing_cui}.', 'woouseful-order-details-copier' ); ?>
+                        <?php echo esc_html__( 'Template tip: custom templates can also use dynamic meta variables such as {meta:_billing_cui}.', 'phpvibe-order-details-copier' ); ?>
                     </p>
 
                     <div class="wuodc-meta-list">
@@ -659,15 +659,15 @@ Order #{order_number}",
                             <div class="wuodc-meta-row">
                                 <label class="wuodc-meta-enabled">
                                     <input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[custom_meta_fields][<?php echo esc_attr( (string) $index ); ?>][enabled]" value="1" <?php checked( $meta_field['enabled'], 'yes' ); ?>>
-                                    <?php echo esc_html__( 'Enable', 'woouseful-order-details-copier' ); ?>
+                                    <?php echo esc_html__( 'Enable', 'phpvibe-order-details-copier' ); ?>
                                 </label>
                                 <label>
-                                    <span><?php echo esc_html__( 'Label', 'woouseful-order-details-copier' ); ?></span>
-                                    <input type="text" class="regular-text" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[custom_meta_fields][<?php echo esc_attr( (string) $index ); ?>][label]" value="<?php echo esc_attr( $meta_field['label'] ); ?>" placeholder="<?php echo esc_attr__( 'VAT / Tax ID', 'woouseful-order-details-copier' ); ?>">
+                                    <span><?php echo esc_html__( 'Label', 'phpvibe-order-details-copier' ); ?></span>
+                                    <input type="text" class="regular-text" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[custom_meta_fields][<?php echo esc_attr( (string) $index ); ?>][label]" value="<?php echo esc_attr( $meta_field['label'] ); ?>" placeholder="<?php echo esc_attr__( 'VAT / Tax ID', 'phpvibe-order-details-copier' ); ?>">
                                 </label>
                                 <label>
-                                    <span><?php echo esc_html__( 'Order meta key', 'woouseful-order-details-copier' ); ?></span>
-                                    <input type="text" class="regular-text code" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[custom_meta_fields][<?php echo esc_attr( (string) $index ); ?>][meta_key]" value="<?php echo esc_attr( $meta_field['meta_key'] ); ?>" placeholder="<?php echo esc_attr__( '_billing_cui', 'woouseful-order-details-copier' ); ?>">
+                                    <span><?php echo esc_html__( 'Order meta key', 'phpvibe-order-details-copier' ); ?></span>
+                                    <input type="text" class="regular-text code" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[custom_meta_fields][<?php echo esc_attr( (string) $index ); ?>][meta_key]" value="<?php echo esc_attr( $meta_field['meta_key'] ); ?>" placeholder="<?php echo esc_attr__( '_billing_cui', 'phpvibe-order-details-copier' ); ?>">
                                 </label>
                             </div>
                         <?php endforeach; ?>
@@ -675,8 +675,8 @@ Order #{order_number}",
                 </div>
 
                 <div class="wuodc-settings-card wuodc-privacy-card">
-                    <h2><?php echo esc_html__( 'Privacy and safety', 'woouseful-order-details-copier' ); ?></h2>
-                    <p><?php echo esc_html__( 'This plugin only reads order data inside wp-admin and copies it to the current admin user clipboard. It does not send customer data to WooUseful, does not call external APIs, and does not create logs.', 'woouseful-order-details-copier' ); ?></p>
+                    <h2><?php echo esc_html__( 'Privacy and safety', 'phpvibe-order-details-copier' ); ?></h2>
+                    <p><?php echo esc_html__( 'This plugin only reads order data inside wp-admin and copies it to the current admin user clipboard. It does not send customer data to PHPVibe, does not call external APIs, and does not create logs.', 'phpvibe-order-details-copier' ); ?></p>
                 </div>
 
                 <?php submit_button(); ?>

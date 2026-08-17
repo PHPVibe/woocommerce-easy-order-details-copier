@@ -1,23 +1,14 @@
-# Woocommerce Easy order details copier
+# woocommerce-easy-order-details-copier
 Copy WooCommerce order details faster. Cleaner fields, custom labels, smart value cleaning, and one-click copy actions for real admin workflows.
 
 
 === PHPVibe Order Details Copier ===
-
-Plugins details and url: [PHPVibe -> Easy Order Details Copier](https://phpvibe.com/download/order-details-copier/)
-
-Contributors: woouseful, phpvibe
-
+Contributors: phpvibe, phpvibe
 Tags: woocommerce, orders, admin, clipboard, customer details, hpos
-
 Requires at least: 6.2
-
 Tested up to: 6.9
-
 Requires PHP: 7.4
-
 Stable tag: 1.1.1
-
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,7 +75,7 @@ Yes. Add the order meta key under WooCommerce > Order Details Copier > Custom or
 
 = Can I translate it? =
 
-Yes. All admin strings are translation-ready using the `woouseful-order-details-copier` text domain.
+Yes. All admin strings are translation-ready using the `phpvibe-order-details-copier` text domain.
 
 == Changelog ==
 

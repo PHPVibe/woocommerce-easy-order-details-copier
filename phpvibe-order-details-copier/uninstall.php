@@ -2,7 +2,7 @@
 /**
  * Uninstall cleanup.
  *
- * @package WooUseful_Order_Details_Copier
+ * @package PHPVibe_Order_Details_Copier
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

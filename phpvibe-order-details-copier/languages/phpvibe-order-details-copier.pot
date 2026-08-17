@@ -1,14 +1,14 @@
-# Copyright (C) 2026 WooUseful
+# Copyright (C) 2026 PHPVibe
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooUseful Order Details Copier 1.0.0\n"
-"Report-Msgid-Bugs-To: https://woouseful.com/\n"
+"Project-Id-Version: PHPVibe Order Details Copier 1.0.0\n"
+"Report-Msgid-Bugs-To: https://PHPVibe.com/\n"
 "POT-Creation-Date: 2026-06-18 00:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Domain: woouseful-order-details-copier\n"
+"X-Domain: phpvibe-order-details-copier\n"
 
 #: includes/Admin/Settings.php
 msgid "_billing_cui"
@@ -227,7 +227,7 @@ msgid "First order"
 msgstr ""
 
 #: includes/Admin/Settings.php
-msgid "Free WooUseful utility"
+msgid "Free PHPVibe utility"
 msgstr ""
 
 #: includes/Fields.php
@@ -543,7 +543,7 @@ msgid "Template title"
 msgstr ""
 
 #: includes/Admin/Settings.php
-msgid "This plugin only reads order data inside wp-admin and copies it to the current admin user clipboard. It does not send customer data to WooUseful, does not call external APIs, and does not create logs."
+msgid "This plugin only reads order data inside wp-admin and copies it to the current admin user clipboard. It does not send customer data to PHPVibe, does not call external APIs, and does not create logs."
 msgstr ""
 
 #: includes/Admin/Settings.php
@@ -567,11 +567,11 @@ msgid "WhatsApp/contact block"
 msgstr ""
 
 #: includes/Admin/Settings.php
-msgid "WooUseful Order Details Copier"
+msgid "PHPVibe Order Details Copier"
 msgstr ""
 
 #: includes/Plugin.php
-msgid "WooUseful Order Details Copier requires WooCommerce to be installed and active."
+msgid "PHPVibe Order Details Copier requires WooCommerce to be installed and active."
 msgstr ""
 
 #: includes/Admin/Settings.php
